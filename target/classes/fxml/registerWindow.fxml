@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.loginSystem.Controllers.RegisterController">
+   <children>
+      <Label layoutX="45.0" layoutY="35.0" prefHeight="35.0" prefWidth="100.0" text="Username" />
+      <TextField fx:id="usernameField" layoutX="45.0" layoutY="70.0" prefHeight="35.0" prefWidth="210.0" />
+      <Label layoutX="45.0" layoutY="140.0" prefHeight="35.0" prefWidth="100.0" text="Email" />
+      <TextField fx:id="emailField" layoutX="45.0" layoutY="175.0" prefHeight="35.0" prefWidth="210.0" />
+      <Label layoutX="45.0" layoutY="245.0" prefHeight="35.0" prefWidth="100.0" text="Password" />
+      <PasswordField fx:id="passwordField" layoutX="45.0" layoutY="280.0" prefHeight="35.0" prefWidth="210.0" />
+      <Label layoutX="45.0" layoutY="350.0" prefHeight="35.0" prefWidth="100.0" text="Confirm password" />
+      <PasswordField fx:id="confirmPasswordField" layoutX="45.0" layoutY="385.0" prefHeight="35.0" prefWidth="210.0" />
+      <Button fx:id="toLoginButton" layoutX="45.0" layoutY="455.0" mnemonicParsing="false" onAction="#toLoginAction" prefHeight="35.0" prefWidth="100.0" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="registerButton" layoutX="155.0" layoutY="455.0" mnemonicParsing="false" onAction="#onRegisterAction" prefHeight="35.0" prefWidth="100.0" text="Register">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="usernameError" layoutX="45.0" layoutY="105.0" prefHeight="35.0" prefWidth="210.0" textFill="#c36767">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="emailError" layoutX="45.0" layoutY="210.0" prefHeight="35.0" prefWidth="210.0" textFill="#c36767">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordError" layoutX="45.0" layoutY="315.0" prefHeight="35.0" prefWidth="210.0" textFill="#c36767">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="confirmPasswordError" layoutX="45.0" layoutY="420.0" prefHeight="35.0" prefWidth="210.0" textFill="#c36767">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
