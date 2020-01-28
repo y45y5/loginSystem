@@ -1,6 +1,6 @@
 package github.loginSystem.Controllers;
 
-import github.loginSystem.Hibernate.HibernateUtil;
+import github.loginSystem.JSON.JsonUtil;
 import github.loginSystem.User.User;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -32,8 +32,9 @@ public class LoginController {
     }
 
     @FXML void loginAction(){
-        HibernateUtil hibernateUtil = new HibernateUtil();
-        User user = hibernateUtil.login(usernameField.getCharacters().toString(), passwordField.getCharacters().toString());
+        JsonUtil jsonUtil = new JsonUtil();
+        jsonUtil.readFromFile();
+        User user = jsonUtil.loginToAccount(usernameField.getCharacters().toString(), passwordField.getCharacters().toString());
         if(user != null) sceneManager.AccountScene(user);
         else loginError.setText("Username or password is invalid!");
     }

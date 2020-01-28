@@ -1,10 +1,9 @@
 package github.loginSystem.App;
 
+import github.loginSystem.JSON.JsonUtil;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import github.loginSystem.Scenes.SceneManager;
-
-import static github.loginSystem.Hibernate.HibernateUtil.addAllConfigs;
 
 public class Main extends Application {
 
@@ -15,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage){
         SceneManager sceneManager = new SceneManager(stage);
-        addAllConfigs();
+        JsonUtil jsonUtil = new JsonUtil("userFile.json");
         sceneManager.LoginScene();
         stage.show();
     }

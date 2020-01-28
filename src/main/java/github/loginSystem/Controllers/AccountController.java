@@ -1,10 +1,9 @@
 package github.loginSystem.Controllers;
 
-import github.loginSystem.Hibernate.HibernateUtil;
+import github.loginSystem.JSON.JsonUtil;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import github.loginSystem.Scenes.SceneManager;
 import github.loginSystem.User.User;
 
@@ -30,10 +29,6 @@ public class AccountController {
         this.user = user;
     }
 
-    public void setUser(String username, String password, String email){
-        user = new User(username, password, email);
-    }
-
     @FXML void logOutAction(){
         sceneManager.LoginScene();
         welcomeLabel.setText("");
@@ -41,8 +36,8 @@ public class AccountController {
 
     @FXML void deleteAccountAction(){
         try{
-            HibernateUtil hibernateUtil = new HibernateUtil();
-            hibernateUtil.deleteUser(user);
+            JsonUtil jsonUtil = new JsonUtil();
+            jsonUtil.deleteUser(user);
             logOutAction();
         }
         catch (Exception e){

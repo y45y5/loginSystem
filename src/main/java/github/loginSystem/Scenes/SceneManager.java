@@ -12,15 +12,9 @@ public class SceneManager {
 
     private static Stage stage;
 
-    private static Scene loginScene;
-    private static Scene registerScene;
-
     public SceneManager(Stage stage){
         SceneManager.stage = stage;
         stage.setResizable(false);
-
-        setLoginScene();
-        setRegisterScene();
 
         stage.setOnCloseRequest(e -> {
             Platform.exit();
@@ -32,38 +26,30 @@ public class SceneManager {
 
     }
 
-    private void setLoginScene(){
+    public void LoginScene(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(this.getClass().getResource("/fxml/loginWindow.fxml"));
             Pane pane = fxmlLoader.load();
-            SceneManager.loginScene = new Scene(pane);
+            stage.setScene(new Scene(pane));
+            stage.setTitle("Login");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
 
-    private void setRegisterScene(){
+    public void RegisterScene(){
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(this.getClass().getResource("/fxml/registerWindow.fxml"));
             Pane pane = fxmlLoader.load();
-            SceneManager.registerScene = new Scene(pane);
+            stage.setScene(new Scene(pane));
+            stage.setTitle("Register");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-    }
-
-    public void LoginScene(){
-        stage.setScene(loginScene);
-        stage.setTitle("Login");
-    }
-
-    public void RegisterScene(){
-        stage.setScene(registerScene);
-        stage.setTitle("Register");
     }
 
     public void AccountScene(User user){
@@ -73,26 +59,8 @@ public class SceneManager {
             Pane pane = fxmlLoader.load();
             AccountController accountController = fxmlLoader.getController();
             accountController.setUser(user);
-            Scene scene = new Scene(pane);
 
-            stage.setScene(scene);
-            stage.setTitle("Account");
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void AccountScene(String username, String password, String email){
-        try{
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(this.getClass().getResource("/fxml/accountWindow.fxml"));
-            Pane pane = fxmlLoader.load();
-            AccountController accountController = fxmlLoader.getController();
-            accountController.setUser(username, password, email);
-            Scene scene = new Scene(pane);
-
-            stage.setScene(scene);
+            stage.setScene(new Scene(pane));
             stage.setTitle("Account");
         }
         catch (Exception e){
